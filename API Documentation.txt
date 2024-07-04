@@ -1,0 +1,90 @@
+Overview
+This API is built using Express.js and MySQL. It provides routes for user registration, login, logout, user details update, money transactions between users, and fetching transaction history.
+
+The following are the endpoints of the API (Note: All endpoints use the GET method):
+
+1. Register
+Registers a new user. All users start with a balance of 1000.
+
+Parameters:
+
+username: The username for the new user.
+password: The password for the new user.
+Response:
+
+a.) User registered successfully.
+b.) Failed to register user.
+c.) Internal server error.
+
+2. Login
+Logs in a registered user. Also creates a session with user id, username, and balance.
+
+Parameters:
+
+username: The username for the registered user.
+password: The password for the registered user.
+Response:
+
+a.) Username and password are required.
+b.) User not found.
+c.) Login successful.
+d.) Invalid username or password.
+
+3. Logout
+Logs out the current user. Also destroys the current session.
+
+Parameters: None
+
+Response:
+
+a.) Failed to logout.
+b.) Logout successful.
+
+4. Get All Users
+Retrieves information about all registered users. This route requires authentication.
+
+Parameters: None
+
+Response:
+
+a.) Returns a JSON array of user details.
+b.) Database error.
+
+5. Update User Details
+Updates the logged-in user's details. This route requires authentication.
+
+Parameters:
+
+username: The new username for the user.
+password: The new password for the user.
+Response:
+
+a.) Username and password are required.
+b.) User details updated successfully.
+c.) Failed to update user details.
+d.) Internal server error.
+
+6. Send Money
+Sends money from the logged-in user to another user. This route requires authentication.
+
+Parameters:
+
+recipientUsername: The username of the recipient.
+amount: The amount of money to send. Must be a positive number.
+Response:
+
+a.) Invalid recipient username or amount.
+b.) Insufficient balance.
+c.) Cannot send money to yourself.
+d.) Transaction failed.
+e.) Money sent successfully.
+
+7. Transaction History
+Retrieves the transaction history for the logged-in user. This route requires authentication.
+
+Parameters: None
+
+Response:
+
+a.) Returns a JSON array of transaction history.
+b.) Failed to fetch transaction history
